@@ -67,7 +67,7 @@ read_file<-  function(file_site,
   }
   else if (sample==F){
     seaurat<- list()
-    file_name=as.list(list.files(path=file_site,pattern = *43878*))
+    file_name=as.list(list.files(path=file_site,pattern = "*43878*"))
     for (i in 1:length(file_name)){
       if (data_type=='txt'){
         cat("====read txt(txt.gz) file start==== \n")
@@ -151,7 +151,7 @@ jd<-function(genes){
 #'
 #' @examples file_merge(data,file_site)
 file_merge<-function(seaurat,file_site){
-  file_name=as.list(list.files(path=file_site,pattern = *43878*))
+  file_name=as.list(list.files(path=file_site,pattern = "*43878*"))
   for (i in 1:length(file_name)){
     seaurat[[i]]@meta.data$orig.ident <- file_name[[i]]
     names(file_name) = seq(from=1, to=length(file_name), by=1)
