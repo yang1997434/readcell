@@ -24,3 +24,7 @@ sample=F
 data_type='txt' ###set parameter
 data<-load_data(file_site,sample=sample,data_type=data_type)
 ```
+It is used to draw scenes of Featureplot and Vlnplot of Marker gene, simplify code blocks, and automatically plan the size of the picture with the number of marker gene
+```{r}
+Jd(c(“CD79A”,”PECAM”))
+```
