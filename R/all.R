@@ -95,14 +95,12 @@ read_file<-  function(file_site,
         seaurat[[i]] <- read.table(paste0(file_site,'/',file_name[[i]]),sep=',',header = T,row.names = 1)
         seaurat[[i]] <- CreateSeuratObject(seaurat[[i]],min.cell=3,min.features=200)
         cat("====seaurta file manufacture finsish==== \n")
-        return (seaurat)
       }
       else if (data_type=='tsv'){
         cat("====read tsv file start==== \n")
         seaurat[[i]] <- read.table(paste0(file_site,'/',file_name[[i]]),sep='\t',header = T,row.names = 1)
         seaurat[[i]] <- CreateSeuratObject(seaurat[[i]],min.cell=3,min.features=200)
         cat("====seaurta file manufacture finsish==== \n")
-        return (seaurat)
       }
       else cat("====data type erro==== \n")
     }
