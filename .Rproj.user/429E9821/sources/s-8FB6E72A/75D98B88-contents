@@ -1,0 +1,33 @@
+#' Title
+#'
+#' @param genes marker gene
+#'
+#' @return vlnplot Featureplot
+#' @export
+#'
+#' @examples jd(c("CD47","PECAM"))
+jd<-function(genes){
+  res = length(genes)
+  if (res < 5) {
+    if (res<=3){
+      options(repr.plot.width=14, repr.plot.height=5*1, repr.plot.res = 200)
+      print(FeaturePlot(dataobj,features = genes,pt.size = pt.size,order = T,ncol=3))
+      options(repr.plot.width=14, repr.plot.height=5*1, repr.plot.res = 200)
+      print(VlnPlot(dataobj,features = genes,pt.size = 0,ncol=1))
+    }
+    else {
+      options(repr.plot.width=14, repr.plot.height=5*1, repr.plot.res = 200)
+      print(FeaturePlot(dataobj,features = genes,pt.size = pt.size,order = T,ncol=3))
+      options(repr.plot.width=14, repr.plot.height=5*2, repr.plot.res = 200)
+      print(VlnPlot(dataobj,features = genes,pt.size = 0,ncol=1))
+    }
+
+  }
+  else {
+    options(repr.plot.width=14, repr.plot.height=5*1, repr.plot.res = 200)
+    print(FeaturePlot(dataobj,features = genes,pt.size = pt.size,order = T,ncol=3))
+    options(repr.plot.width=14, repr.plot.height=5*(res-3), repr.plot.res = 200)
+    print(VlnPlot(dataobj,features = genes,pt.size = 0,ncol=1))
+  }
+}
+

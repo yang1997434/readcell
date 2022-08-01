@@ -1,0 +1,23 @@
+#' Title
+#'
+#' @param file_site File name or folder
+#' @param sample T or F
+#' @param data_type single cell data type,such as:rds h5 loom 10X
+#'
+#' @return seurat object
+#' @export
+#'
+#' @examples load_data(file_site,sample=T,data_type='rds')
+load_data<-function(file_site,
+                    sample=T,
+                    data_type='rds'){
+  if (sample==T){
+    data<-read_file(file_site,sample=T,data_type=data_type)
+    return (data)
+  }
+  if (sample==F){
+    data<-read_file(file_site,sample=F,data_type=data_type)
+    data<-file_merge(data,file_site=file_site)
+    return (data)
+  }
+}

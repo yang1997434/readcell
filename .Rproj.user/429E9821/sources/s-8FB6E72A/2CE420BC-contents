@@ -1,0 +1,29 @@
+#' Title
+#'
+#' @param seaurat object
+#' @param file_site  folder
+#'
+#' @return seurat object
+#' @export
+#'
+#' @examples file_merge(data,file_site)
+file_merge<-function(seaurat,file_site){
+  file_name=as.list(list.files(path=file_site))
+  for (i in 1:length(file_name)){
+    seaurat[[i]]@meta.data$orig.ident <- file_name[[i]]
+    names(file_name) = seq(from=1, to=length(file_name), by=1)
+    seaurat[[i]]@meta.data$sample_lable <- names(file_name)[i]
+  }
+  j=1
+  while (j <= (length(seaurat)-1)){
+    if (j==1){
+      seaurat_merge<-merge( seaurat[[j]],seaurat[[j+1]])
+      j=j+1
+    }
+    else {
+      seaurat_merge<-merge(seaurat_merge,seaurat[[j+1]])
+      j=j+1
+    }
+  }
+  return (seaurat_merge)
+}
