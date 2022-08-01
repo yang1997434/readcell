@@ -28,3 +28,4 @@ It is used to draw scenes of Featureplot and Vlnplot of Marker gene, simplify co
 ```{r}
 Jd(c(“CD79A”,”PECAM”))
 ```
+![caption]("file:///C:/Users/DELL/Downloads/plot.pdf")
