@@ -1,6 +1,8 @@
 # readcell
 The file can be read using the load_data function with three parameters
+```{r}
 data<-load_data(file_site,sample=sample,data_type=data_type)
+```
 File_site: indicates the file name of a single sample file and the folder name of multiple copies
 Sample =sample: sample=T indicates that the file is a single sample and F is a multi-sample file
 The data_type parameter is the read data type. You can set 'TXT' 'RDS' 'H5' '10X' 'CSV' 'TSV' 'Loom' 'H5AD'
